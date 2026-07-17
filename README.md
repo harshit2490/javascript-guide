@@ -97,6 +97,7 @@
 | #   | Chapter                                                                                        | Key Concepts                                                       |
 | --- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | 28  | [Cheat Sheet & Interview Quick-Fire](#chapter-28--cheat-sheet)           | All interview Qs consolidated, comparison tables, gotchas           |
+| 29  | [Modern JavaScript Versions (ES2017+)](#chapter-29--modern-javascript-versions)           | `async`/`await`, `Temporal API`, `Array.fromAsync`, and ES8–ES17 features           |
 
 ---
 
@@ -3954,6 +3955,17 @@ Array.prototype.myMap = function(cb) {
 ---
 
 > **Study tip:** The most commonly tested topics in JS interviews are: closures, the event loop (microtask vs callback queue), Promise chaining, `async`/`await` internals, and `this` binding rules. Master these five areas and you'll be prepared for 90% of JS interview questions.
+
+---
+
+<a id="chapter-29--modern-javascript-versions"></a>
+## Chapter 29 — Modern JavaScript Versions (ES2017+) &nbsp; <sup>[⬆ Back to Menu](#toc)</sup>
+
+This guide covers the core fundamentals of JavaScript. However, since ES2015 (ES6), JavaScript has added powerful new features every year. 
+
+To learn all the modern features added from **ES2017 (ES8)** through **ES2026 (ES17)** — including `async`/`await`, Optional Chaining (`?.`), Nullish Coalescing (`??`), top-level `await`, and the **Temporal API** — we've created a dedicated reference guide.
+
+👉 **For more details, click on this:** [Modern JavaScript Guide (ES2017–ES2026)](https://github.com/harshit2490/javascript-guide/blob/main/modern-javascript-versions.md)
 
 <div align="center">
 
