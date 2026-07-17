@@ -1,6 +1,6 @@
 # 🚀 The Complete JavaScript Guide — Beginner to Advanced
 
-> A deep, chapter-wise reference for mastering **Core JavaScript** concepts. Every concept ships with a concise definition, interview Q&A, and copy-pasteable code. Based on the Namaste JavaScript series by Akshay Saini.
+> A deep, chapter-wise reference for mastering **Core JavaScript** concepts. Every concept ships with a concise definition, interview Q&A, and code. Based on the Namaste JavaScript series by Akshay Saini.
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Interview](https://img.shields.io/badge/Interview-Ready-4CAF50?style=for-the-badge)
