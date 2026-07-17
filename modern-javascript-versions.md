@@ -8,6 +8,7 @@
 
 ---
 
+<a id="toc"></a>
 ## 📚 Table of Contents
 
 | Version | Year | Key Features |
@@ -21,12 +22,12 @@
 | [ES2023 (ES14)](#es2023-es14) | 2023 | `Array.findLast/findLastIndex`, Immutable array methods `toSorted/toReversed/toSpliced/with` |
 | [ES2024 (ES15)](#es2024-es15) | 2024 | `Promise.withResolvers`, `Object.groupBy`, `Map.groupBy`, `ArrayBuffer.resize` |
 | [ES2025 (ES16)](#es2025-es16) | 2025 | `Iterator` helpers, `RegExp` features, `Promise.try`, `Set` methods |
-| [ES2026 (ES17)](#es2026-es17) | 2026 | `Math.sumPrecise`, `Error.isError`, `Array.fromAsync`, `Iterator.concat`, `Map.getOrInsert`, `Uint8Array` base64/hex, JSON improvements |
+| [ES2026 (ES17)](#es2026-es17) | 2026 | `Temporal API`, `Math.sumPrecise`, `Error.isError`, `Array.fromAsync`, `Iterator.concat`, `Map.getOrInsert`, `Uint8Array` base64/hex, JSON improvements |
 
 ---
 
 <a id="es2017-es8"></a>
-## ES2017 (ES8) — 2017
+## ES2017 (ES8) — 2017 &nbsp; <sup>[⬆ Back to Menu](#toc)</sup>
 
 ---
 
@@ -196,7 +197,7 @@ add(
 
 ---
 <a id="es2018-es9"></a>
-## ES2018 (ES9) — 2018
+## ES2018 (ES9) — 2018 &nbsp; <sup>[⬆ Back to Menu](#toc)</sup>
 
 ---
 
@@ -333,7 +334,7 @@ prices.forEach(p => {
 
 ---
 <a id="es2019-es10"></a>
-## ES2019 (ES10) — 2019
+## ES2019 (ES10) — 2019 &nbsp; <sup>[⬆ Back to Menu](#toc)</sup>
 
 ---
 
@@ -474,7 +475,7 @@ students.sort((a, b) => a.grade.localeCompare(b.grade));
 
 ---
 <a id="es2020-es11"></a>
-## ES2020 (ES11) — 2020
+## ES2020 (ES11) — 2020 &nbsp; <sup>[⬆ Back to Menu](#toc)</sup>
 
 ---
 
@@ -677,7 +678,7 @@ const { formatDate, parseDate } = await import('./date-utils.js');
 
 ---
 <a id="es2021-es12"></a>
-## ES2021 (ES12) — 2021
+## ES2021 (ES12) — 2021 &nbsp; <sup>[⬆ Back to Menu](#toc)</sup>
 
 ---
 
@@ -842,7 +843,7 @@ target = null; // may trigger callback eventually
 
 ---
 <a id="es2022-es13"></a>
-## ES2022 (ES13) — 2022
+## ES2022 (ES13) — 2022 &nbsp; <sup>[⬆ Back to Menu](#toc)</sup>
 
 ---
 
@@ -1037,7 +1038,7 @@ async function loadUserProfile(id) {
 
 ---
 <a id="es2023-es14"></a>
-## ES2023 (ES14) — 2023
+## ES2023 (ES14) — 2023 &nbsp; <sup>[⬆ Back to Menu](#toc)</sup>
 
 ---
 
@@ -1119,7 +1120,7 @@ const pipeline = data
 
 ---
 <a id="es2024-es15"></a>
-## ES2024 (ES15) — 2024
+## ES2024 (ES15) — 2024 &nbsp; <sup>[⬆ Back to Menu](#toc)</sup>
 
 ---
 
@@ -1228,7 +1229,7 @@ console.log(buf2.byteLength); // 512 — new buffer has the data
 
 ---
 <a id="es2025-es16"></a>
-## ES2025 (ES16) — 2025
+## ES2025 (ES16) — 2025 &nbsp; <sup>[⬆ Back to Menu](#toc)</sup>
 
 ---
 
@@ -1375,7 +1376,105 @@ highlight('Price: $100.00', '$100.00');
 
 ---
 
-### 48. Temporal API — Modern Date & Time
+## 🗂️ Quick Comparison Reference
+
+### Promise Combinators
+
+| Method | Resolves when | Rejects when | Returns |
+|--------|--------------|--------------|---------|
+| `Promise.all` | All fulfill | **Any** rejects | Array of values |
+| `Promise.allSettled` | All settle | Never | Array of `{status, value/reason}` |
+| `Promise.race` | First settles (either) | First settles (rejected) | First value/reason |
+| `Promise.any` | **First fulfills** | All reject | First value / `AggregateError` |
+
+### `||` vs `??` vs `?.`
+
+| Operator | Triggers on | Use for |
+|----------|-------------|---------|
+| `\|\|` | Any falsy (`0`, `''`, `false`, `null`, `undefined`) | Default for truly "empty" values |
+| `??` | Only `null` / `undefined` | Default that preserves `0`, `false`, `''` |
+| `?.` | `null` / `undefined` in chain | Safe property/method access |
+
+### Mutating vs Immutable Array Methods (ES2023)
+
+| Mutating (old) | Immutable copy (ES2023) |
+|----------------|------------------------|
+| `sort()` | `toSorted()` |
+| `reverse()` | `toReversed()` |
+| `splice()` | `toSpliced()` |
+| `arr[i] = v` | `with(i, v)` |
+
+### `find` vs `findLast`
+
+| Method | Direction | Returns |
+|--------|-----------|---------|
+| `find(fn)` | Left → Right | First match |
+| `findIndex(fn)` | Left → Right | Index of first match |
+| `findLast(fn)` | Right → Left | Last match |
+| `findLastIndex(fn)` | Right → Left | Index of last match |
+
+---
+
+## 🎯 Interview Quick-Fire
+
+```javascript
+// 1. Optional chaining + nullish coalescing combo
+const city = user?.address?.city ?? 'Unknown';
+
+// 2. Object transform pipeline
+const result = Object.fromEntries(
+  Object.entries(obj)
+    .filter(([, v]) => v !== null)
+    .map(([k, v]) => [k, String(v)])
+);
+
+// 3. Flatten + transform
+const allTags = posts.flatMap(post => post.tags);
+
+// 4. Group by category
+const grouped = Object.groupBy(items, item => item.type);
+
+// 5. Parallel async with error resilience
+const results = await Promise.allSettled([fetch(url1), fetch(url2)]);
+const successes = results
+  .filter(r => r.status === 'fulfilled')
+  .map(r => r.value);
+
+// 6. Private class field
+class Counter {
+  #count = 0;
+  increment() { this.#count++; }
+  get value() { return this.#count; }
+}
+
+// 7. Debounce with logical assignment
+opts.delay ??= 300; // only set if null/undefined
+
+// 8. findLast pattern
+const lastFailed = jobs.findLast(j => j.status === 'failed');
+
+// 9. Immutable sort
+const sorted = [...array].sort(); // old way
+const sorted = array.toSorted(); // ES2023 way
+
+// 10. Promise.withResolvers deferred pattern
+const { promise, resolve } = Promise.withResolvers();
+eventEmitter.once('ready', resolve);
+await promise;
+```
+
+---
+
+> **Study tip:** Focus on `?.`, `??`, `async/await`, `Promise.all/allSettled/any`, `Object.groupBy`, and class private fields — these come up most in modern JS interviews. Know the difference between `||` and `??`, and between mutating and immutable array methods.
+
+---
+<a id="es2026-es17"></a>
+## ES2026 (ES17) — 2026 &nbsp; <sup>[⬆ Back to Menu](#toc)</sup>
+
+> Officially approved by ECMA International on **June 30, 2026**. Focus: practical API improvements that reduce boilerplate, improve numeric precision, and make binary data handling first-class.
+
+---
+### 41. Temporal API — Modern Date & Time
 
 > The long-awaited replacement for `Date` — immutable, timezone-aware, unambiguous. Reached **Stage 4 in March 2026** (ships in Chrome 144, Firefox 139, Node.js 26).
 
@@ -1500,106 +1599,7 @@ const next = now.add({ days: 7 }); // new object, now is unchanged
 
 ---
 
-## 🗂️ Quick Comparison Reference
-
-### Promise Combinators
-
-| Method | Resolves when | Rejects when | Returns |
-|--------|--------------|--------------|---------|
-| `Promise.all` | All fulfill | **Any** rejects | Array of values |
-| `Promise.allSettled` | All settle | Never | Array of `{status, value/reason}` |
-| `Promise.race` | First settles (either) | First settles (rejected) | First value/reason |
-| `Promise.any` | **First fulfills** | All reject | First value / `AggregateError` |
-
-### `||` vs `??` vs `?.`
-
-| Operator | Triggers on | Use for |
-|----------|-------------|---------|
-| `\|\|` | Any falsy (`0`, `''`, `false`, `null`, `undefined`) | Default for truly "empty" values |
-| `??` | Only `null` / `undefined` | Default that preserves `0`, `false`, `''` |
-| `?.` | `null` / `undefined` in chain | Safe property/method access |
-
-### Mutating vs Immutable Array Methods (ES2023)
-
-| Mutating (old) | Immutable copy (ES2023) |
-|----------------|------------------------|
-| `sort()` | `toSorted()` |
-| `reverse()` | `toReversed()` |
-| `splice()` | `toSpliced()` |
-| `arr[i] = v` | `with(i, v)` |
-
-### `find` vs `findLast`
-
-| Method | Direction | Returns |
-|--------|-----------|---------|
-| `find(fn)` | Left → Right | First match |
-| `findIndex(fn)` | Left → Right | Index of first match |
-| `findLast(fn)` | Right → Left | Last match |
-| `findLastIndex(fn)` | Right → Left | Index of last match |
-
----
-
-## 🎯 Interview Quick-Fire
-
-```javascript
-// 1. Optional chaining + nullish coalescing combo
-const city = user?.address?.city ?? 'Unknown';
-
-// 2. Object transform pipeline
-const result = Object.fromEntries(
-  Object.entries(obj)
-    .filter(([, v]) => v !== null)
-    .map(([k, v]) => [k, String(v)])
-);
-
-// 3. Flatten + transform
-const allTags = posts.flatMap(post => post.tags);
-
-// 4. Group by category
-const grouped = Object.groupBy(items, item => item.type);
-
-// 5. Parallel async with error resilience
-const results = await Promise.allSettled([fetch(url1), fetch(url2)]);
-const successes = results
-  .filter(r => r.status === 'fulfilled')
-  .map(r => r.value);
-
-// 6. Private class field
-class Counter {
-  #count = 0;
-  increment() { this.#count++; }
-  get value() { return this.#count; }
-}
-
-// 7. Debounce with logical assignment
-opts.delay ??= 300; // only set if null/undefined
-
-// 8. findLast pattern
-const lastFailed = jobs.findLast(j => j.status === 'failed');
-
-// 9. Immutable sort
-const sorted = [...array].sort(); // old way
-const sorted = array.toSorted(); // ES2023 way
-
-// 10. Promise.withResolvers deferred pattern
-const { promise, resolve } = Promise.withResolvers();
-eventEmitter.once('ready', resolve);
-await promise;
-```
-
----
-
-> **Study tip:** Focus on `?.`, `??`, `async/await`, `Promise.all/allSettled/any`, `Object.groupBy`, and class private fields — these come up most in modern JS interviews. Know the difference between `||` and `??`, and between mutating and immutable array methods.
-
----
-<a id="es2026-es17"></a>
-## ES2026 (ES17) — 2026
-
-> Officially approved by ECMA International on **June 30, 2026**. Focus: practical API improvements that reduce boilerplate, improve numeric precision, and make binary data handling first-class.
-
----
-
-### 41. `Math.sumPrecise()`
+### 42. `Math.sumPrecise()`
 
 > Sum an iterable of numbers with full floating-point precision — no more accumulation errors.
 
@@ -1631,7 +1631,7 @@ const total = lineItems.reduce((sum, n) => sum + Math.round(n * 100), 0) / 100;
 
 ---
 
-### 42. `Error.isError()`
+### 43. `Error.isError()`
 
 > Reliably check if a value is an Error — works across iframes, workers, and realms.
 
@@ -1666,7 +1666,7 @@ function logError(value) {
 
 ---
 
-### 43. `Array.fromAsync()`
+### 44. `Array.fromAsync()`
 
 > Build an array from an **async iterable** — the async version of `Array.from()`.
 
@@ -1709,7 +1709,7 @@ const fromSync = await Array.fromAsync([1, 2, 3]); // [1, 2, 3]
 
 ---
 
-### 44. `Iterator.concat()`
+### 45. `Iterator.concat()`
 
 > Combine multiple iterators into a single lazy sequence — no array creation needed.
 
@@ -1751,7 +1751,7 @@ for (const line of allLogs) {
 
 ---
 
-### 45. `Map.prototype.getOrInsert()` and `Map.prototype.getOrInsertComputed()`
+### 46. `Map.prototype.getOrInsert()` and `Map.prototype.getOrInsertComputed()`
 
 > Get a value from a Map, inserting a default if the key is missing — eliminates repetitive `if (!map.has(k))` patterns.
 
@@ -1794,7 +1794,7 @@ for (const item of items) {
 
 ---
 
-### 46. `Uint8Array` — Base64 and Hex Encoding
+### 47. `Uint8Array` — Base64 and Hex Encoding
 
 > Native Base64 and Hex conversion on binary data — no more manual atob/btoa workarounds.
 
@@ -1839,7 +1839,7 @@ bytes.toBase64({ alphabet: 'base64url', omitPadding: true });
 
 ---
 
-### 47. JSON Improvements — `JSON.parse` Source Access & `JSON.rawJSON`
+### 48. JSON Improvements — `JSON.parse` Source Access & `JSON.rawJSON`
 
 > Access the raw JSON source in revivers, and create raw JSON values that bypass `JSON.stringify` serialization.
 
