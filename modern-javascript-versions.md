@@ -1,4 +1,4 @@
-# ⚡ Modern JavaScript — ES2017 to ES2025 &nbsp; <sup> 👉 [Back to JavaScript Guide](https://github.com/harshit2490/javascript-guide/blob/main/README.md)</sup>
+# ⚡ Modern JavaScript — ES2017 to ES2025 &nbsp; <sup> 👉 [Back to JavaScript Guide](https://github.com/harshit2490/javascript-guide/blob/main/README.md#chapter-29--modern-javascript-versions)</sup>
 
 > A concise, code-first reference covering every major ECMAScript feature from ES8 (2017) through ES16 (2025). Interview-focused with real examples for each feature.
 
