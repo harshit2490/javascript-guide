@@ -1172,6 +1172,12 @@ console.log(z); // 3  — const was shadowed, outer unchanged
 
 ### What is a Closure?
 
+A **closure** is a combination of function and it's lexical scope bundled together forms a closure.
+</br>
+</br>
+**[OR in other word]**
+</br>
+</br>
 A **closure** is a function bundled with a reference to its outer lexical environment — it remembers variables from its enclosing scope even after that outer function has returned. Closures capture **references**, not values.
 
 ### How It Works
