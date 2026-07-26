@@ -1251,7 +1251,10 @@ console.log(ctr.getCount()); // 2
 console.log(ctr.count);      // undefined — private!
 ```
 
-**Currying:**
+**Currying:** 
+
+It is a process of transforming a function that takes multiple arguments into a sequence of functions that each take a single argument.
+
 ```javascript
 function multiply(x) {
   return function(y) { return x * y; };
