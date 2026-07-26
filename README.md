@@ -1254,6 +1254,23 @@ console.log(ctr.count);      // undefined — private!
 **Currying:** It is a process of transforming a function that takes multiple arguments into a sequence of functions that each take a single argument.
 
 ```javascript
+// not in curried form
+function sum(a,b,c){
+    return a+b+c
+}
+sum(1,2,3)
+
+// in curried form
+function curriedSum(a){
+    return function(b){
+        return function(c){
+            return a+b+c
+        }
+    }
+}
+curriedSum(1)(2)(3)
+
+// in curried form
 function multiply(x) {
   return function(y) { return x * y; };
 }
