@@ -2784,7 +2784,9 @@ createOrder(["shoes", "shirt"], function(orderId) {
 
 ### What is a Promise?
 
-A **Promise** is an object representing the eventual completion or failure of an async operation. It serves as a **placeholder for a future value** and comes with guaranteed, predictable behavior — solving both Callback Hell and Inversion of Control.
+- "**Promise** is an object act as a **placeholder** for a certain period of time until we receive a value **(also called as future value)** from async operation."
+- It has three states: pending, fulfilled, or rejected. Once settled, the state never changes.
+- It comes with guaranteed, predictable behavior — solving both Callback Hell and Inversion of Control.
 
 ### How It Works
 
@@ -2906,7 +2908,7 @@ getOrderId(["shoes", "shirt"])
   <div style="font-size: 0.9rem; color: black; background:#fff; border:2px solid red; border-radius: 10px;">
 
 - **Q: What is a Promise in JavaScript?**
-  - A: An object representing the eventual completion or failure of an async operation. It's a placeholder for a future value with three states: pending, fulfilled, or rejected. Once settled, the state never changes.
+  - A: Promise is an object act as a placeholder for a certain period of time until we receive a value (also called as future value) from async operation. It has three states: pending, fulfilled, or rejected. Once settled, the state never changes. It comes with guaranteed, predictable behavior — solving both Callback Hell and Inversion of Control.
 
 - **Q: How does a Promise solve Inversion of Control?**
   - A: With callbacks, you hand your function to a third party. With Promises, the third party returns a Promise — you attach your handler via `.then()`. The Promise API (not the third party) invokes it exactly once.
