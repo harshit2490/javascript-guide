@@ -2784,7 +2784,7 @@ createOrder(["shoes", "shirt"], function(orderId) {
 
 ### What is a Promise?
 
-- "**Promise** is an object act as a **placeholder** for a certain period of time until we receive a value **(also called as future value)** from async operation."
+- "**Promise** is an object act as a **placeholder** for a certain period of time until we receive a value **(also called as future value)** from async operation." **[OR]** "Placeholder for a future async value."
 - It has three states: pending, fulfilled, or rejected. Once settled, the state never changes.
 - It comes with guaranteed, predictable behavior — solving both Callback Hell and Inversion of Control.
 
